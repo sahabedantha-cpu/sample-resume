@@ -1,0 +1,173 @@
+/* ===== Colour palette & fonts (CSS variables) ===== */
+:root {
+  --cream: #fff6e5;
+  --ink: #2b2118;
+  --green: #1f4d3a;
+  --mustard: #e9a820;
+  --card: #ffffff;
+  --muted: #6d6256;
+  --heading-font: 'Fraunces', serif;
+  --body-font: 'DM Sans', sans-serif;
+}
+
+/* ===== Element selectors ===== */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--body-font);
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--cream);
+}
+h1, h2, h3 { font-family: var(--heading-font); line-height: 1.2; }
+a { color: var(--green); }
+ul { padding-left: 20px; }
+
+/* ===== Navigation bar: flexbox + sticky positioning ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--cream);
+  border-bottom: 2px solid var(--ink);
+}
+.logo {
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+.nav-links { display: flex; flex-wrap: wrap; gap: 18px; list-style: none; margin: 0; padding: 0; }
+.nav-links a { text-decoration: none; color: var(--ink); font-weight: 500; }
+.nav-links a:hover { color: var(--green); text-decoration: underline; text-decoration-color: var(--mustard); text-decoration-thickness: 3px; }
+
+/* ===== Hero: two columns with flexbox ===== */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+.hero-text { flex: 1 1 360px; }
+.greeting { margin: 0; font-size: 1.2rem; color: var(--muted); }
+.hero h1 { margin: 4px 0 8px; font-size: clamp(2.6rem, 8vw, 4.5rem); }
+.tagline { font-family: var(--heading-font); font-size: 1.4rem; color: var(--green); margin: 0 0 12px; }
+.intro { max-width: 460px; }
+
+/* ID selector (used once) */
+#home { scroll-margin-top: 80px; }
+
+/* Highlighted text */
+.highlight { background: linear-gradient(transparent 60%, var(--mustard) 60%); }
+
+/* Photo placeholder: replace with an <img> later */
+.photo-box {
+  flex: 0 1 260px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 700;
+  color: var(--muted);
+  background: var(--card);
+  border: 3px dashed var(--green);
+  border-radius: 130px 130px 20px 20px;
+  transform: rotate(3deg);
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-block;
+  margin: 8px 8px 0 0;
+  padding: 10px 22px;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--cream);
+  background: var(--green);
+  border: 2px solid var(--green);
+  border-radius: 30px;
+}
+.btn:hover { background: var(--ink); border-color: var(--ink); }
+.btn-outline { color: var(--green); background: transparent; }
+.btn-outline:hover { color: var(--cream); }
+
+/* ===== Sections ===== */
+.section {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 56px 24px 8px;
+  scroll-margin-top: 60px;
+}
+.num {
+  display: block;
+  font-weight: 700;
+  color: var(--mustard);
+}
+.section h2 { margin: 0 0 14px; font-size: 2rem; }
+
+/* ===== Cards ===== */
+.card {
+  background: var(--card);
+  padding: 16px 20px;
+  margin: 14px 0;
+  border: 2px solid var(--ink);
+  border-radius: 14px;
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.card h3 { margin: 0 0 4px; }
+.card p { margin: 4px 0; }
+.meta { color: var(--muted); font-size: 0.95rem; }
+
+/* Expandable cards */
+details summary { cursor: pointer; font-family: var(--heading-font); font-weight: 700; font-size: 1.1rem; }
+details[open] summary { margin-bottom: 8px; color: var(--green); }
+
+/* ===== Grid for project cards ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+/* ===== Chips ===== */
+.chip-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+.chip {
+  padding: 4px 14px;
+  font-size: 0.9rem;
+  background: var(--cream);
+  border: 2px solid var(--green);
+  border-radius: 20px;
+}
+.chip:hover { background: var(--mustard); }
+
+/* ===== Contact + footer ===== */
+.contact { text-align: center; padding-bottom: 40px; }
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 24px;
+  color: var(--cream);
+  background: var(--green);
+}
+.footer a { color: var(--cream); }
+
+/* ===== Mobile ===== */
+@media (max-width: 600px) {
+  .navbar { justify-content: center; }
+  .photo-box { height: 240px; }
+}
